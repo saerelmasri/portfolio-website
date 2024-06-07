@@ -73,6 +73,9 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    backgroundImage: {
+      'hero-section': "url('../public/images/saer.jpg')",
+    },
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config

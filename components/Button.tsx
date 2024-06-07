@@ -1,26 +1,34 @@
-"use client";   
+"use client";
 
 import React from "react";
-
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 type ButtonProp = {
   title: string;
-  path: string;
+  path?: string;
+  variant: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined;
+  size?: "default" | "sm" | "lg" | "icon" | null | undefined;
+  sx?: string;
 };
 
-function ButtonCustom({ title, path }: ButtonProp) {
+function ButtonCustom({ title, path, variant, size, sx }: ButtonProp) {
   const pathname = usePathname();
   const isActive = path === pathname;
+
+  const baseClasses = "text-xl font-bold hover:text-primary";
+  const variantClasses = variant === "default" ? "hover:text-white" : "";
+  const activeClasses = isActive ? "text-primary" : "text-black";
+  const customClasses = sx ? sx : "";
+
   return (
     <Button
-      variant="link"
-      className={`text-xl font-bold text-gray-400 hover:text-primary ${
-        isActive ? "text-primary" : "text-black"
-      }`}
+      variant={variant}
+      size={size ? size : "default"}
+      className={`${baseClasses} ${variantClasses} ${activeClasses} ${customClasses}`}
     >
-      {title}
+      <Link href={path ? path : ""}>{title}</Link>
     </Button>
   );
 }
