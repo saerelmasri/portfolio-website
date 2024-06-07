@@ -75,6 +75,8 @@ const config = {
     },
     backgroundImage: {
       'hero-section': "url('../public/images/saer.jpg')",
+      'project': "url('../public/images/projectBg.jpg')",
+      'vitality': "url('../public/images/vitality.png')",
     },
   },
   plugins: [require("tailwindcss-animate")],
