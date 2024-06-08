@@ -4,7 +4,7 @@ import { BiMessageSquareDetail } from "react-icons/bi";
 
 function NavBar() {
   return (
-    <nav className="top-0 bg-white fixed w-full h-14 flex justify-between items-center pt-8 pb-8 border ">
+    <nav className="top-0 bg-white fixed w-full h-14 flex justify-between items-center pt-8 pb-8">
       <div className="border border-solid border-black m-10">Saer Logo</div>
       <div className="space-x-5">
         <ButtonCustom title="Home" path="/" variant={"link"}/>
