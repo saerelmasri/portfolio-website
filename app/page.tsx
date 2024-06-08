@@ -4,7 +4,7 @@ import ButtonCustom from "@/components/Button";
 import Resume from "@/components/Experience/Resume";
 import ProjectCard from "@/components/ProjectCard";
 import Skills from "@/components/Skills";
-import { mySkills } from "@/constants";
+import { mySkills, projects } from "@/constants";
 
 export default function Home() {
   return (
@@ -58,23 +58,16 @@ export default function Home() {
             Projects<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="w-full md:grid md:grid-cols-3 gap-10 md:p-8 flex flex-col justify-center p-13">
-          <ProjectCard
-            title="TaskFlow"
-            description="Task management system with drag-and-drop, real-time collaboration, and responsive layout."
-            backgroundProject="bg-vitality"
-          />
-          <ProjectCard
-            title="TaskFlow"
-            description="Task management system with drag-and-drop, real-time collaboration, and responsive layout."
-            backgroundProject="bg-vitality"
-            sxCard="col-span-2"
-          />
-          <ProjectCard
-            title="TaskFlow"
-            description="Task management system with drag-and-drop, real-time collaboration, and responsive layout."
-            backgroundProject="bg-vitality"
-          />
+        <div className="w-full md:grid md:grid-cols-2 gap-10 md:p-8 flex flex-col justify-center p-13">
+          {projects.map((item, index) => (
+            <ProjectCard
+              key={index}
+              title={item.title}
+              description={item.description}
+              backgroundProject={item.backgroundProject}
+              sxCard={item.sxCard}
+            />
+          ))}
         </div>
       </div>
 
