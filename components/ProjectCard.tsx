@@ -16,7 +16,7 @@ function ProjectCard({
   backgroundProject,
 }: ProjectCardProp) {
   return (
-    <div className={`space-y-3 ${sxCard}`}>
+    <div className={`space-y-3  ${sxCard}`}>
       <div
         className={`w-full h-[350px] rounded-3xl bg-cover bg-center bg-project flex justify-center items-center`}
       >

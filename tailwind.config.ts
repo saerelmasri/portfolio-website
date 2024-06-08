@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -74,12 +74,13 @@ const config = {
       },
     },
     backgroundImage: {
-      'hero-section': "url('../public/images/saer.jpg')",
-      'project': "url('../public/images/projectBg.jpg')",
-      'vitality': "url('../public/images/vitality.png')",
+      "hero-section": "url('../public/images/saer.jpg')",
+      project: "url('../public/images/projectBg.jpg')",
+      vitality: "url('../public/images/vitality.png')",
+      portfolio: "url('../public/images/portfolio.png')",
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
