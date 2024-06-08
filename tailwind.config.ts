@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -74,9 +74,10 @@ const config = {
       },
     },
     backgroundImage: {
-      'hero-section': "url('../public/images/saer.jpg')",
-      'project': "url('../public/images/projectBg.jpg')",
-      'vitality': "url('../public/images/vitality.png')",
+      "hero-section": "url('/static/images/saer.jpg')",
+      "project": "url('/static/images/projectBg.jpg')",
+      "vitality": "url('/static/images/vitality.png')",
+      "portfolio": "url('/static/images/portfolio.png')",
     },
   },
   plugins: [require("tailwindcss-animate")],
