@@ -6,36 +6,58 @@ function Footer() {
   const date = new Date();
   const year = date.getFullYear();
   return (
-    <footer className="pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
-      <div className="flex justify-between pl-10">
-        <div className=" flex justify-center ">
-          <ButtonCustom title="Home" variant="link" size="sm" />
-          <ButtonCustom title="Projects" variant="link" size="sm" />
-          <ButtonCustom title="About" variant="link" size="sm" />
-          <ButtonCustom title="Contact" variant="link" size="sm" />
+    <footer className="px-5 xl:px-60 lg:px-40 md:px-20 mt-10 md:mt-20">
+      <div className="flex justify-between flex-wrap md:flex-no-wrap">
+        <div className="flex justify-between md:justify-start flex-col items-start md:flex-row md:pl-5 mb-5 md:mb-0">
+          <ButtonCustom title="Home" variant="link" size="sm" path="/" />
+          <ButtonCustom
+            title="Projects"
+            variant="link"
+            size="sm"
+            path="/projects"
+          />
+          <ButtonCustom title="About" variant="link" size="sm" path="/about" />
+          <ButtonCustom
+            title="Contact"
+            variant="link"
+            size="sm"
+            path="/contact"
+          />
         </div>
-        <div className="flex justify-end space-x-3 p-5 ">
-          <FiLinkedin size={30} className="cursor-pointer" />
-          <FiGithub size={30} />
+        <div className="flex space-x-3 p-5 md:p-0">
+          <a
+            href="https://www.linkedin.com/in/saer-el-masri/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FiLinkedin size={30} className="cursor-pointer" />
+          </a>
+          <a
+            href="https://github.com/saerelmasri"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FiGithub size={30} className="cursor-pointer" />
+          </a>
         </div>
       </div>
-      <div className="flex">
-        <div className="flex h-[80px] w-[50%] p-12 justify-start items-center space-x-4">
-          <h4 className="text-2xl font-semibold text-gray-500">
+      <div className="flex flex-col md:flex-row md:justify-between">
+        <div className="flex flex-col md:flex-row md:w-1/2 p-5">
+          <h4 className="text-lg font-semibold text-gray-500">
             Interested in working together?
           </h4>
           <ButtonCustom
             title="Get in Touch"
-            path="/dd"
+            path="/contact"
             variant={"default"}
-            sx={"w-1/2 text-sm md:w-1/5 md:text-lg mr-5 text-white "}
+            sx={"mt-3 md:mt-0 md:ml-5 text-sm md:text-lg"}
           />
         </div>
-        <div className="flex flex-col h-[80px] w-[50%] p-5 justify-center items-end space-x-4">
-          <h4 className="text-base font-semibold text-gray-500">
+        <div className="flex flex-col md:flex-row md:w-1/2 p-5 md:justify-end">
+          <h4 className="text-sm font-semibold text-gray-500">
             ©{year} All Rights Reserved.
           </h4>
-          <h4 className="text-base font-semibold text-gray-500">
+          <h4 className="text-sm font-semibold text-gray-500">
             Made with 💜 by Saer El Masri
           </h4>
         </div>

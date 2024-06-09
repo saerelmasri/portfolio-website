@@ -1,3 +1,5 @@
+
+
 import type { Config } from "tailwindcss";
 
 const config = {
@@ -78,6 +80,9 @@ const config = {
       "projects": "url('/images/projectBg.jpg')",
       "vitalitys": "url('/images/vitality.png')",
       "portfolios": "url('/images/portfolio.jpg')",
+    },
+    fontFamily: {
+      Poppins: ['Poppins', 'serif',],
     },
   },
   plugins: [require("tailwindcss-animate")],

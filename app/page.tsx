@@ -53,8 +53,8 @@ export default function Home() {
       </div>
 
       <div className="w-full mt-36 pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
-        <div className="w-full p-12">
-          <h3 className="text-6xl font-bold">
+        <div className="w-full p-2 md:p-12">
+          <h3 className="text-5xl md:text-6xl font-bold">
             Projects<strong className="text-primary">.</strong>
           </h3>
         </div>
@@ -73,23 +73,23 @@ export default function Home() {
       </div>
 
       <div className="w-full mt-36 pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
-        <div className="w-full p-12">
-          <h3 className="text-6xl font-bold">
+        <div className="w-full p-2 md:p-12">
+          <h3 className="text-5xl md:text-6xl font-bold">
             Experience<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="w-full p-12">
+        <div className="w-full p-2 md:p-12">
           <Resume />
         </div>
       </div>
 
       <div className="w-full mt-36 pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
-        <div className="w-full p-12">
-          <h3 className="text-6xl font-bold">
+        <div className="w-full p-2 md:p-12">
+          <h3 className="text-5xl md:text-6xl font-bold">
             Skills<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="w-full p-12 md:flex md:space-y-0 space-y-5">
+        <div className="w-full p-2 md:p-12 md:flex md:space-y-0 space-y-5">
           {mySkills.map((item, index) => (
             <Skills
               key={index}
@@ -101,16 +101,16 @@ export default function Home() {
       </div>
 
       <div className="w-full mt-36 pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
-        <div className="w-full p-12">
-          <h3 className="text-6xl font-bold">
+        <div className="w-full p-2 md:p-12">
+          <h3 className="text-5xl md:text-6xl font-bold">
             My Story<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="text-xl text-gray-600 space-y-3 p-12">
+        <div className="text-xl text-gray-600 space-y-3 p-2 md:p-12">
           <p>
             My journey as a{" "}
             <strong className="text-primary">full stack developer</strong> began
-            in 2023 upon graduating with a Bachelor's degree in Computer
+            in 2022 upon graduating with a Bachelor's degree in Computer
             Science. While my university education provided me with a solid
             foundation in programming, I knew there was much more to learn and
             explore.
