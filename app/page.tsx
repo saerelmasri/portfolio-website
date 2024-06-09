@@ -66,6 +66,7 @@ export default function Home() {
               description={item.description}
               backgroundProject={item.backgroundProject}
               sxCard={item.sxCard}
+              path={item.path}
             />
           ))}
         </div>

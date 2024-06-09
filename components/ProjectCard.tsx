@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 type ProjectCardProp = {
@@ -5,7 +6,7 @@ type ProjectCardProp = {
   description: string;
   sxCard?: string;
   path?: string;
-  backgroundProject?: string;
+  backgroundProject: string;
 };
 
 function ProjectCard({
@@ -15,18 +16,38 @@ function ProjectCard({
   path,
   backgroundProject,
 }: ProjectCardProp) {
+  const isInternalLink = path && (path.startsWith("/") || path.startsWith("#"));
+
   return (
-    <div className={`space-y-3  ${sxCard}`}>
+    <div className={`space-y-3 ${sxCard}`}>
       <div
-        className={`w-full h-[350px] rounded-3xl bg-cover bg-center bg-project flex justify-center items-center`}
+        className={`w-full h-[350px] mb-10 rounded-3xl bg-cover bg-center bg-projects flex justify-center items-center`}
       >
         <div
-          className={`w-[90%] h-[300px] rounded bg-cover bg-center ${backgroundProject} flex justify-center items-center`}
+          className="w-[90%] h-[300px] rounded bg-cover bg-center"
+          style={{ backgroundImage: `url(${backgroundProject})` }}
         />
       </div>
-      <h4 className="text-2xl font-bold hover:underline hover:cursor-pointer">
-        {title}
-      </h4>
+      {path ? (
+        isInternalLink ? (
+          <Link href={path} passHref>
+            <h4 className="text-2xl font-bold hover:underline hover:cursor-pointer">
+              {title}
+            </h4>
+          </Link>
+        ) : (
+          <a
+            href={path}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl font-bold hover:underline hover:cursor-pointer"
+          >
+            {title}
+          </a>
+        )
+      ) : (
+        <h4 className="text-2xl font-bold">{title}</h4>
+      )}
       <h4 className="text-lg font-semibold text-gray-500">{description}</h4>
     </div>
   );

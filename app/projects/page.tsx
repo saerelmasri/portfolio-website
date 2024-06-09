@@ -19,6 +19,7 @@ function ProjectsPage() {
               title={item.title}
               description={item.description}
               backgroundProject={item.backgroundProject}
+              path={item.path}
             />
           ))}
         </div>
