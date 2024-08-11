@@ -1,9 +1,11 @@
 import Link from "next/link";
 import React from "react";
+import { Badge } from "@/components/ui/badge";
 
 type ProjectCardProp = {
   title: string;
   description: string;
+  skills: string[];
   sxCard?: string;
   path?: string;
   backgroundProject: string;
@@ -12,6 +14,7 @@ type ProjectCardProp = {
 function ProjectCard({
   title,
   description,
+  skills,
   sxCard,
   path,
   backgroundProject,
@@ -48,6 +51,18 @@ function ProjectCard({
       ) : (
         <h4 className="text-2xl font-bold">{title}</h4>
       )}
+      <div className=" w-full">
+        <div className="flex flex-wrap gap-3">
+          {skills.map((skill, index) => (
+            <Badge
+              key={index}
+              className="h-[40px] flex justify-center items-center rounded-xl text-center text-sm hover:bg-primary"
+            >
+              {skill}
+            </Badge>
+          ))}
+        </div>
+      </div>
       <h4 className="text-lg font-semibold text-gray-500">{description}</h4>
     </div>
   );

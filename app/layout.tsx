@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
@@ -22,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+      </head>
       <body className={`${inter.className} ${poppins.className}`}>
         <NavBar />
         <main className="pt-16">

@@ -20,6 +20,8 @@ function ProjectsPage() {
               description={item.description}
               backgroundProject={item.backgroundProject}
               path={item.path}
+              skills={item.skills}
+              website={item.website}
             />
           ))}
         </div>
