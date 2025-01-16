@@ -9,31 +9,31 @@ import { mySkills, projects } from "@/constants";
 export default function Home() {
   return (
     <main>
-      <div className="flex flex-col md:flex-row items-center justify-center  sm:pl-5 sm:pr-5 md:pl-30 md:pr-30 2xl:pl-60 2xl:pr-60">
-        <div className=" w-full md:w-1/2 text-black flex flex-col justify-center space-y-3 p-4 md:p-10 2xl:p-12">
-          <h5 className="text-2xl md:text-xl text-gray-500">
+      <div className="flex flex-col md:flex-row items-center justify-center sm:pl-5 sm:pr-5 md:pl-30 md:pr-30 2xl:pl-60 2xl:pr-60">
+        <div className="w-full md:w-1/2 text-black flex flex-col justify-center space-y-3 p-4 md:p-10 2xl:p-12">
+          <h5 className="text-lg md:text-lg text-gray-500">
             Hey, I am Saer 👋
           </h5>
-          <h2 className="text-black text-6xl md:text-5xl lg:text-8xl font-extrabold">
+          <h2 className="text-black text-4xl md:text-4xl lg:text-6xl font-extrabold">
             <strong className="text-primary">Full Stack</strong> Developer
           </h2>
-          <p className="text-lg md:text-2xl text-gray-500 max-w-prose">
+          <p className="text-base md:text-lg text-gray-500 max-w-prose">
             I'm a full stack developer based in Lebanon, I'll help you build
             beautiful websites your users will love.
           </p>
-          <div className="w-full h-16 flex justify-start items-center">
+          <div className="space-x-2">
             <ButtonCustom
               title="Get in Touch"
-              path="/dd"
+              path="/contact"
               variant={"default"}
-              sx={"text-sm w-1/3 mr-5 text-white text-based pl-20 pr-20"}
+              sx={"text-md w-1/3 text-white text-base font-semibold"}
             />
             <ButtonCustom
               title="Browse Projects"
               path="/projects"
               variant={"outline"}
               sx={
-                "border border-black border-solid w-1/3 text-sm mr-5 pl-20 pr-20 hover:bg-secondary hover:text-white hover:border-transparent"
+                "border border-black w-1/3 text-sm hover:bg-secondary hover:text-white hover:border-transparent"
               }
             />
           </div>
@@ -44,21 +44,21 @@ export default function Home() {
             style={{
               aspectRatio: "1 / 1",
               width: "100%",
-              maxWidth: "500px",
+              maxHeight: "400px",
+              maxWidth: "400px",
               height: "auto",
-              maxHeight: "500px",
             }}
           ></div>
         </div>
       </div>
 
-      <div className="w-full mt-36 pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
+      <div className="w-full pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
         <div className="w-full p-2 md:p-12">
-          <h3 className="text-5xl md:text-6xl font-bold">
+          <h3 className="text-4xl md:text-3xl font-bold">
             Projects<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="w-full md:grid md:grid-cols-2 gap-10 md:p-8 flex flex-col justify-center p-13">
+        <div className="w-full md:grid md:grid-cols-2 gap-10 md:pl-10 md:pr-10 flex flex-col justify-center">
           {projects.map((item, index) => (
             <ProjectCard
               key={index}
@@ -73,24 +73,24 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full mt-36 pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
+      <div className="w-full pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
         <div className="w-full p-2 md:p-12">
-          <h3 className="text-5xl md:text-6xl font-bold">
+          <h3 className="text-4xl md:text-3xl font-bold">
             Experience<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="w-full p-2 md:p-12">
+        <div className="w-full md:pl-12 md:pr-12 flex flex-col justify-center">
           <Resume />
         </div>
       </div>
 
-      <div className="w-full mt-36 pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
+      <div className="w-full 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
         <div className="w-full p-2 md:p-12">
-          <h3 className="text-5xl md:text-6xl font-bold">
+          <h3 className="text-4xl md:text-3xl font-bold">
             Skills<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="w-full p-2 md:p-12 md:flex md:space-y-0 space-y-5">
+        <div className="w-full md:pl-12 md:pr-12 flex justify-center">
           {mySkills.map((item, index) => (
             <Skills
               key={index}
@@ -101,13 +101,13 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full mt-36 pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
-        <div className="w-full p-2 md:p-12">
-          <h3 className="text-5xl md:text-6xl font-bold">
+      <div className="w-full 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
+        <div className="w-full p-2 md:p-10">
+          <h3 className="text-4xl md:text-3xl font-bold">
             My Story<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="text-xl text-gray-600 space-y-3 p-2 md:p-12">
+        <div className="text-base text-gray-600 space-y-2 md:pl-10 md:pr-10">
           <p>
             My journey as a{" "}
             <strong className="text-primary">full stack developer</strong> began
