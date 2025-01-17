@@ -7,7 +7,7 @@ function Footer() {
   const year = date.getFullYear();
 
   return (
-    <footer className="border-t mt-10 md:mt-20 py-6">
+    <footer className="mt-10 md:mt-20 py-6">
       {/* Navigation and Social Icons */}
       <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0 px-6 md:px-10">
         {/* Navigation Links */}
