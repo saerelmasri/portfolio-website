@@ -6,18 +6,20 @@ type ProjectCardProp = {
   title: string;
   description: string;
   skills: string[];
+  backgroundProject: string;
   sxCard?: string;
   path?: string;
-  backgroundProject: string;
+  website?: string;
 };
 
 function ProjectCard({
   title,
   description,
   skills,
+  backgroundProject,
   sxCard,
   path,
-  backgroundProject,
+  website
 }: ProjectCardProp) {
   const isInternalLink = path && (path.startsWith("/") || path.startsWith("#"));
 
@@ -64,6 +66,23 @@ function ProjectCard({
         </div>
       </div>
       <h4 className="text-base font-semibold text-gray-500">{description}</h4>
+
+      {website && (
+        <Link href={website}>
+          <h4 className="text-base sm:text-lg font-medium text-primary hover:underline mt-2">
+            Link to the website
+          </h4>
+        </Link>
+      )}
+
+      {/* GitHub Repository Link */}
+      {path &&  (
+        <Link href={path}>
+          <h4 className="text-base sm:text-lg font-medium text-primary hover:underline mt-2">
+            Link to the Github repository
+          </h4>
+        </Link>
+      )}
     </div>
   );
 }

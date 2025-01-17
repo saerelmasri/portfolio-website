@@ -21,8 +21,9 @@ function ProjectSection({
   website,
 }: ProjectProp) {
   return (
-    <div className="space-y-7 mb-40">
-      <div className="w-full h-[300px] md:h-[500px] 2xl:h-[600px] rounded-3xl flex justify-center items-center mb-10 relative overflow-hidden">
+    <div className="space-y-6 mb-20">
+      {/* Project Background Image */}
+      <div className="border w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[400px] rounded-3xl flex justify-center items-center mb-6 relative overflow-hidden">
         <div className="relative w-full h-full">
           <Image
             src={backgroundProject}
@@ -37,41 +38,43 @@ function ProjectSection({
           />
         </div>
       </div>
-      <h4 className="text-3xl md:text-5xl 2xl:text-5xl font-extrabold pl-5">
-        {title}
-      </h4>
-      <div className="px-5 w-full">
-        <div className="flex flex-wrap gap-3">
+
+      {/* Project Title */}
+      <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold pl-4 sm:pl-6">{title}</h4>
+
+      {/* Skills Section */}
+      <div className="px-4 sm:px-6 w-full">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           {skills.map((skill, index) => (
             <Badge
               key={index}
-              className="h-[40px] flex justify-center items-center rounded-xl text-center text-sm hover:bg-primary"
+              className="h-[30px] sm:h-[35px] flex justify-center items-center rounded-xl text-center text-xs sm:text-sm hover:bg-primary"
             >
               {skill}
             </Badge>
           ))}
         </div>
       </div>
-      <h4 className="text-xl md:text-2xl 2xl:text-xl font-semibold text-gray-500 pl-5">
-        {description}
-      </h4>
-      {website ? (
+
+      {/* Project Description */}
+      <h4 className="text-base sm:text-lg md:text-xl font-medium text-gray-600 pl-4 sm:pl-6">{description}</h4>
+
+      {/* Website Link */}
+      {website && (
         <Link href={website}>
-          <h4 className="text-lg md:text-lg 2xl:text-lg font-medium hover:underline hover:cursor-pointer  pt-5 pl-5">
+          <h4 className="text-base sm:text-lg font-medium text-primary hover:underline pt-4 pl-4 sm:pl-6">
             Link to the website
           </h4>
         </Link>
-      ) : (
-        <></>
       )}
-      {path ? (
+
+      {/* GitHub Repository Link */}
+      {path && (
         <Link href={path}>
-          <h4 className="text-lg md:text-lg 2xl:text-lg font-medium hover:underline hover:cursor-pointer pt-5 pl-5">
+          <h4 className="text-base sm:text-lg font-medium text-primary hover:underline pt-4 pl-4 sm:pl-6">
             Link to the Github repository
           </h4>
         </Link>
-      ) : (
-        <></>
       )}
     </div>
   );

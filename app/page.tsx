@@ -63,7 +63,6 @@ export default function Home() {
               title={item.title}
               description={item.description}
               backgroundProject={item.backgroundProject}
-              sxCard={item.sxCard}
               path={item.path}
               skills={item.skills}
             />
