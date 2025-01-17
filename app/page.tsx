@@ -9,56 +9,54 @@ import { mySkills, projects } from "@/constants";
 export default function Home() {
   return (
     <main>
-      <div className="flex flex-col md:flex-row items-center justify-center sm:pl-5 sm:pr-5 md:pl-30 md:pr-30 2xl:pl-60 2xl:pr-60">
+      <div className="flex flex-col md:flex-row items-center justify-center px-12 sm:px-12 lg:px-20">
         <div className="w-full md:w-1/2 text-black flex flex-col justify-center space-y-3 p-4 md:p-10 2xl:p-12">
-          <h5 className="text-lg md:text-lg text-gray-500">
+          <h5 className="text-base sm:text-base md:text-lg text-gray-500">
             Hey, I am Saer 👋
           </h5>
-          <h2 className="text-black text-4xl md:text-4xl lg:text-6xl font-extrabold">
+          <h2 className="text-3xl sm:text-3xl md:text-5xl font-extrabold">
             <strong className="text-primary">Full Stack</strong> Developer
           </h2>
-          <p className="text-base md:text-lg text-gray-500 max-w-prose">
+          <p className="text-base sm:text-base md:text-base text-gray-500 max-w-prose">
             I'm a full stack developer based in Lebanon, I'll help you build
             beautiful websites your users will love.
           </p>
-          <div className="space-x-2">
+          <div className=" sm:space-y-3 flex-row justify-center items-center">
             <ButtonCustom
               title="Get in Touch"
               path="/contact"
               variant={"default"}
-              sx={"text-md w-1/3 text-white text-base font-semibold"}
+              sx={"text-white text-sm font-semibold mr-2"}
             />
             <ButtonCustom
               title="Browse Projects"
               path="/projects"
               variant={"outline"}
               sx={
-                "border border-black w-1/3 text-sm hover:bg-secondary hover:text-white hover:border-transparent"
+                "border border-black text-sm hover:bg-secondary hover:text-white hover:border-transparent"
               }
             />
           </div>
         </div>
-        <div className="w-full md:w-1/2 md:h-screen flex justify-center items-center p-10">
+        <div className="w-full md:w-1/2 flex justify-center items-center">
           <div
-            className="bg-cover bg-center rounded-full bg-hero-section"
+            className="bg-cover bg-center rounded-full bg-hero-section sm:max-w-[500px] md:max-w-[350px] lg:max-w-[400px]"
             style={{
               aspectRatio: "1 / 1",
               width: "100%",
-              maxHeight: "400px",
-              maxWidth: "400px",
               height: "auto",
             }}
           ></div>
         </div>
       </div>
 
-      <div className="w-full pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
-        <div className="w-full p-2 md:p-12">
-          <h3 className="text-4xl md:text-3xl font-bold">
+      <div className="w-full px-5 sm:px-10 lg:px-20 xl:px-20 mt-10">
+        <div className="w-full md:py-12">
+          <h3 className="text-3xl sm:text-4xl font-bold">
             Projects<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="w-full md:grid md:grid-cols-2 gap-10 md:pl-10 md:pr-10 flex flex-col justify-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {projects.map((item, index) => (
             <ProjectCard
               key={index}
@@ -73,24 +71,24 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full pl-5 pr-5 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
-        <div className="w-full p-2 md:p-12">
-          <h3 className="text-4xl md:text-3xl font-bold">
+      <div className="w-full px-5 sm:px-10 lg:px-20 xl:px-20 mt-10">
+        <div className="w-full md:py-12">
+          <h3 className="text-3xl sm:text-4xl font-bold">
             Experience<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="w-full md:pl-12 md:pr-12 flex flex-col justify-center">
+        <div className="w-full flex flex-col justify-center">
           <Resume />
         </div>
       </div>
 
-      <div className="w-full 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
-        <div className="w-full p-2 md:p-12">
-          <h3 className="text-4xl md:text-3xl font-bold">
+      <div className="w-full px-5 sm:px-10 lg:px-20 xl:px-20 mt-10">
+        <div className="w-full md:py-12">
+          <h3 className="text-3xl sm:text-4xl font-bold">
             Skills<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="w-full md:pl-12 md:pr-12 flex justify-center">
+        <div className="w-full flex justify-center">
           {mySkills.map((item, index) => (
             <Skills
               key={index}
@@ -101,13 +99,13 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full 2xl:pl-60 2xl:pr-60 md:pl-50 md:pr-50">
-        <div className="w-full p-2 md:p-10">
-          <h3 className="text-4xl md:text-3xl font-bold">
+      <div className="w-full px-5 sm:px-10 lg:px-20 xl:px-20 mt-10">
+        <div className="w-full md:py-12">
+          <h3 className="text-3xl sm:text-4xl font-bold">
             My Story<strong className="text-primary">.</strong>
           </h3>
         </div>
-        <div className="text-base text-gray-600 space-y-2 md:pl-10 md:pr-10">
+        <div className="text-sm sm:text-base lg:text-lg text-gray-600 space-y-4 sm:space-y-6">
           <p>
             My journey as a{" "}
             <strong className="text-primary">full stack developer</strong> began
