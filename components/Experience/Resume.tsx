@@ -37,11 +37,11 @@ function Resume() {
   const [selectedCompany, setSelectedCompany] = useState<Company>(companies[0]);
   return (
     <div className="flex flex-col md:flex-row">
-      <div className="w-full md:w-1/4 p-4">
+      <div className="w-full md:w-1/4">
         {companies.map((company) => (
           <button
             key={company.name}
-            className={`text-2xl block w-full text-left p-2 ${
+            className={`text-xl block w-full text-left p-2 ${
               selectedCompany.name === company.name
                 ? "text-primary font-bold"
                 : "text-gray-600"
@@ -52,7 +52,7 @@ function Resume() {
           </button>
         ))}
       </div>
-      <div className="w-full md:w-3/4 p-4">
+      <div className="w-full md:w-3/4">
         <Experience
           company={selectedCompany.name}
           position={selectedCompany.position}

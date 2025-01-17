@@ -16,8 +16,6 @@ type ButtonProp = {
 function ButtonCustom({ title, path, variant, size, sx }: ButtonProp) {
   const pathname = usePathname();
   const isActive = path === pathname;
-
-  const baseClasses = "text-xl font-bold hover:text-primary";
   const variantClasses = variant === "default" ? "hover:text-white" : "";
   const activeClasses = isActive ? "text-primary" : "text-black";
   const customClasses = sx ? sx : "";
@@ -26,7 +24,7 @@ function ButtonCustom({ title, path, variant, size, sx }: ButtonProp) {
     <Button
       variant={variant}
       size={size ? size : "default"}
-      className={`${baseClasses} ${variantClasses} ${activeClasses} ${customClasses}`}
+      className={`hover:text-primary ${variantClasses} ${activeClasses} ${customClasses}`}
     >
       <Link href={path ? path : ""}>{title}</Link>
     </Button>

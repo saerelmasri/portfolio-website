@@ -5,22 +5,25 @@ import { AiOutlineMail } from "react-icons/ai";
 function ContactPage() {
   return (
     <main>
-      <div className="flex flex-col md:flex-row items-center justify-center  sm:pl-5 sm:pr-5 md:pl-30 md:pr-30 2xl:pl-60 2xl:pr-60">
-        <div className=" w-full md:w-1/2 text-black flex flex-col justify-center space-y-3 p-4 md:p-10 2xl:p-12">
-          <h2 className="text-black text-5xl md:text-5xl lg:text-7xl font-extrabold">
+      <div className="flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+        {/* Left Section - Text and Email */}
+        <div className="w-full md:w-1/2 text-black flex flex-col justify-center space-y-5 py-6 md:py-12 lg:py-16">
+          <h2 className="text-black text-3xl sm:text-4xl lg:text-5xl font-extrabold">
             Get In Touch<strong className="text-primary">.</strong>
           </h2>
-          <p className="text-lg md:text-xl text-gray-500 max-w-prose">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-500 max-w-prose">
             Looking to partner or work together? Reach out through the form and
             I'll get back to you in the next 48 hours.
           </p>
-          <div className="w-full h-16 flex flex-col justify-start items-start space-y-5">
-            <div className="flex justify-start items-center space-x-2">
-              <AiOutlineMail size={20} />
-              <h5 className="text-xl text-gray-800">saer1890@gmail.com</h5>
-            </div>
+          <div className="flex items-center space-x-3">
+            <AiOutlineMail size={24} className="text-primary" />
+            <h5 className="text-sm sm:text-base lg:text-lg text-gray-800">
+              saer1890@gmail.com
+            </h5>
           </div>
         </div>
+
+        {/* Right Section - Image */}
         <div className="w-full md:w-1/2 md:h-screen flex justify-center items-center p-10">
           <div
             className="bg-cover bg-center rounded-full bg-hero-section"
