@@ -33,7 +33,7 @@ export const projects = [
     description:
       "I created a modern portfolio website using Next.js and Tailwind CSS, focusing on speed and a smooth user experience across all devices. It's designed to showcase professional work with clean, responsive design.",
     backgroundProject: "/images/portfolio.jpg",
-    path: "/",
+    path: "https://github.com/saerelmasri/portfolio-website",
     website: "",
     skills: [
       {
@@ -78,13 +78,36 @@ export const projects = [
     ],
   },
   {
+    title: "Wallet App",
+    description:
+      " Created a wallet app for budgeting, expense tracking, and financial goal management. It allows users to categorize budgets, track expenses, set financial goals, and review transaction history, built with React Native Expo, Firebase, and Tailwind CSS.",
+    backgroundProject: "/images/nocode.jpg",
+    sxCard: "col-span-1",
+    website: "",
+    path: "https://github.com/saerelmasri/wallet-app",
+    skills: [
+      {
+        name: "React Native Expo",
+        logo: "/images/logos/react-native.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        logo: "/images/logos/tailwindcss.svg",
+      },
+      {
+        name: "Firebase",
+        logo: "/images/logos/firebase.svg",
+      },
+    ],
+  },
+  {
     title: "Football Team Manager",
     description:
       " Built a football team management app where users manage team budgets, place players as starters or on the bench, and buy/sell players in a marketplace with other teams.",
     backgroundProject: "/images/nocode.jpg",
     sxCard: "col-span-1",
     website: "",
-    path: "https://github.com/saerelmasri/vitality",
+    path: "https://github.com/saerelmasri/football-manager",
     skills: [
       {
         name: "NextJS",

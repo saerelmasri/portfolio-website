@@ -43,7 +43,7 @@ const NavBar: React.FC = () => {
               transition={{ duration: 0.5 }}
               className={`text-xl font-bold transition-colors duration-300 ${scrolled ? 'text-black' : 'text-white'}`}
             >
-              Saer<span className="text-primary">.</span>
+              Saer<span className="text-[#6f4cff]">.</span>
             </motion.span>
           </Link>
 
@@ -60,8 +60,8 @@ const NavBar: React.FC = () => {
                   href={link.path}
                   className={`relative text-sm font-medium transition-colors duration-300 ${
                     pathname === link.path
-                      ? "text-primary"
-                      : `text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary`
+                      ? "text-[#6f4cff]"
+                      : `text-gray-700 dark:text-gray-300 hover:text-[#6f4cff] dark:hover:text-[#6f4cff]`
                   }`}
                 >
                   {link.name}
@@ -80,7 +80,7 @@ const NavBar: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
+              className="text-gray-700 dark:text-gray-300 hover:text-[#6f4cff] dark:hover:text-[#6f4cff]"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -111,7 +111,7 @@ const NavBar: React.FC = () => {
                     <Link
                       href={link.path}
                       className={`block py-2 text-base font-medium ${
-                        pathname === link.path ? "text-primary" : "text-gray-700 dark:text-gray-300"
+                        pathname === link.path ? "text-[#6f4cff]" : "text-gray-700 dark:text-gray-300"
                       }`}
                       onClick={() => setIsOpen(false)}
                     >

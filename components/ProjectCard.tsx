@@ -26,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, backgroun
       <div className="h-48 w-full bg-cover bg-center" style={{ backgroundImage: `url(${backgroundProject})` }} />
 
       <div className="p-6 bg-white dark:bg-gray-800 relative z-10">
-        <h4 className="text-xl font-bold mb-2">{title}</h4>
+        <h4 className="text-xl font-bold mb-2 text-black">{title}</h4>
         <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{description}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
