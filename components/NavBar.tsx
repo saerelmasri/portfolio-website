@@ -1,71 +1,131 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import ButtonCustom from "./Button";
-import { BiMessageSquareDetail, BiMenu, BiX } from "react-icons/bi";
-import Link from "next/link";
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import type React from "react"
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Menu, X } from "lucide-react"
 
-function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
+const NavBar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact", path: "/contact" },
+  ]
 
   return (
-    <nav className="top-0 bg-white fixed w-full h-14 flex justify-between items-center z-10">
-      {/* Desktop Navigation */}
-      <div className="hidden lg:flex space-x-6 pl-10">
-        <ButtonCustom title="Home" path="/" variant={"link"} sx={"text-base font-bold"} />
-        <ButtonCustom title="Projects" path="/projects" variant={"link"} sx={"text-base font-bold"} />
-        <ButtonCustom title="About" path="/about" variant={"link"} sx={"text-base font-bold"} />
-      </div>
-
-      {/* Contact Button and Mobile Menu Toggle */}
-      <div className="flex items-center ml-auto">
-        <Link href="/contact">
-          <button
-            aria-label="Contact"
-            className="items-center justify-center w-8 h-8 rounded-full bg-black text-white hover:opacity-75 m-6 hidden lg:flex"
-          >
-            <BiMessageSquareDetail size={20} />
-          </button>
-        </Link>
-        <button
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-          className="lg:hidden ml-4"
-        >
-          {isOpen ? <BiX size={30} /> : <BiMenu size={30} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`fixed top-0 right-0 w-full h-full bg-black bg-opacity-50 z-20 transition-transform transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } lg:hidden`}
-        onClick={toggleMenu}
-      >
-        <div
-          className="bg-white w-64 h-full p-8 absolute right-0 shadow-lg"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <ButtonCustom title="Home" path="/" variant={"link"} sx={"block text-base mb-4"} />
-          <ButtonCustom title="Projects" path="/projects" variant={"link"} sx={"block text-base mb-4"} />
-          <ButtonCustom title="About" path="/about" variant={"link"} sx={"block text-base mb-4"} />
-          <Link href="/contact">
-            <button
-              aria-label="Contact"
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-black text-white hover:opacity-75 mt-6"
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className={`text-xl font-bold transition-colors duration-300 ${scrolled ? 'text-black' : 'text-white'}`}
             >
-              <BiMessageSquareDetail size={25} />
-            </button>
+              Saer<span className="text-primary">.</span>
+            </motion.span>
           </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link, index) => (
+              <motion.div
+                key={link.name}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+              >
+                <Link
+                  href={link.path}
+                  className={`relative text-sm font-medium transition-colors duration-300 ${
+                    pathname === link.path
+                      ? "text-primary"
+                      : `text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary`
+                  }`}
+                >
+                  {link.name}
+                  {pathname === link.path && (
+                    <motion.span
+                      layoutId="underline"
+                      className="absolute left-0 top-full block h-[2px] w-full bg-primary"
+                    />
+                  )}
+                </Link>
+              </motion.div>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
-    </nav>
-  );
+
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
+          >
+            <div className="container mx-auto px-4 py-4">
+              <nav className="flex flex-col space-y-4">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <Link
+                      href={link.path}
+                      className={`block py-2 text-base font-medium ${
+                        pathname === link.path ? "text-primary" : "text-gray-700 dark:text-gray-300"
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  )
 }
 
-export default NavBar;
+export default NavBar

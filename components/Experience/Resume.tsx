@@ -1,67 +1,97 @@
 "use client";
 
-import React, { useState } from "react";
-import Experience from "./Experience";
+import type React from "react";
+import { motion } from "framer-motion";
+import { Calendar, GraduationCap, Briefcase } from "lucide-react";
 
-type Company = {
-  name: string;
-  position: string;
-  duration: string;
-  responsibilities: string[];
-};
+interface ExperienceItem {
+  title: string;
+  company: string;
+  date: string;
+  description: string;
+  type: "education" | "work";
+}
 
-const companies: Company[] = [
+const experienceData: ExperienceItem[] = [
   {
-    name: "Celitech",
-    position: "Full Stack Developer",
-    duration: "August 2023 - Present",
-    responsibilities: [
-      "Designed and implemented responsive user interfaces using React.js, enhancing user experience and accessibility across multiple devices",
-      "Developed and maintained RESTful APIs with Node.js and Express, ensuring seamless data integration and real-time updates for web applications",
-      "Optimized database performance and wrote complex SQL queries in PostgreSQL to handle large-scale data processing and ensure data integrity",
-    ],
+    title: "Full Stack Developer",
+    company: "Celitech",
+    date: "August 2023 - Present",
+    description:
+      "Improved the customer dashboard, optimized APIs and databases, developed SDKs for seamless integration, integrated services into third-party platforms, and collaborated on troubleshooting and system architecture.",
+    type: "work",
   },
   {
-    name: "Gozilla",
-    position: "Intern as Backend Developer",
-    duration: "August 2022 - October 2022",
-    responsibilities: [
-      "Implemented RESTful APIs using Java and Spring Boot, facilitating efficient communication between front-end and back-end systems",
-      "Assisted in the migration of a legacy database to a modern SQL-based system, improving data retrieval speed and reliability",
-      "Collaborated with senior developers to debug and optimize server-side code, enhancing overall application performance and stability",
-    ],
+    title: "Full Stack Development Bootcamp",
+    company: "SE Factory",
+    date: "February 2023 - May 2023",
+    description:
+      "Completed an intensive three-month bootcamp focused on full stack web development. Learned modern technologies and best practices while building real-world projects.",
+    type: "education",
+  },
+  {
+    title: "Software Engineer Intern",
+    company: "Gozilla",
+    date: "August 2022 - November 2022",
+    description:
+      "Optimized customer engagement by improving response times and interactions. Developed an AI-powered chatbot using Google’s Dialogflow for enhanced user experience through natural language processing and machine learning.",
+    type: "work",
+  },
+  {
+    title: "Bachelor's Degree in Computer Science",
+    company: "American University of Science and Technology",
+    date: "October 2018 - July 2022",
+    description:
+      "Studied computer science fundamentals, algorithms, data structures, and software engineering principles. Graduated with honors.",
+    type: "education",
   },
 ];
 
-function Resume() {
-  const [selectedCompany, setSelectedCompany] = useState<Company>(companies[0]);
+const Resume: React.FC = () => {
   return (
-    <div className="flex flex-col md:flex-row">
-      <div className="w-full md:w-1/4">
-        {companies.map((company) => (
-          <button
-            key={company.name}
-            className={`text-xl block w-full text-left p-2 ${
-              selectedCompany.name === company.name
-                ? "text-primary font-bold"
-                : "text-gray-600"
-            }`}
-            onClick={() => setSelectedCompany(company)}
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="space-y-12">
+        {experienceData.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="flex flex-col md:flex-row gap-4 md:gap-8"
           >
-            {company.name}
-          </button>
+            {/* Icon */}
+            <div className="flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                {item.type === "education" ? (
+                  <GraduationCap className="text-primary" size={24} />
+                ) : (
+                  <Briefcase className="text-primary" size={24} />
+                )}
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="flex-grow">
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                <h4 className="text-xl font-bold">{item.title}</h4>
+                <div className="flex items-center text-sm text-gray-500 mt-1 md:mt-0">
+                  <Calendar size={14} className="mr-1" />
+                  {item.date}
+                </div>
+              </div>
+              <h5 className="text-lg font-medium text-primary mb-2">
+                {item.company}
+              </h5>
+              <p className="text-gray-600 dark:text-gray-400">
+                {item.description}
+              </p>
+            </div>
+          </motion.div>
         ))}
-      </div>
-      <div className="w-full md:w-3/4">
-        <Experience
-          company={selectedCompany.name}
-          position={selectedCompany.position}
-          duration={selectedCompany.duration}
-          responsibilities={selectedCompany.responsibilities}
-        />
       </div>
     </div>
   );
-}
+};
 
 export default Resume;

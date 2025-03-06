@@ -1,102 +1,101 @@
-import React from "react";
-import ButtonCustom from "./Button";
-import { FiGithub, FiLinkedin } from "react-icons/fi";
+"use client"
 
-function Footer() {
-  const date = new Date();
-  const year = date.getFullYear();
+import type React from "react"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { Github, Linkedin, Mail } from "lucide-react"
+
+const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="mt-10 md:mt-20 py-6">
-      {/* Navigation and Social Icons */}
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0 px-6 md:px-10">
-        {/* Navigation Links */}
-        <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-6">
-          <ButtonCustom
-            title="Home"
-            variant="link"
-            size="sm"
-            path="/"
-            sx={"font-semibold"}
-          />
-          <ButtonCustom
-            title="Projects"
-            variant="link"
-            size="sm"
-            path="/projects"
-            sx={"font-semibold"}
-          />
-          <ButtonCustom
-            title="About"
-            variant="link"
-            size="sm"
-            path="/about"
-            sx={"font-semibold"}
-          />
-          <ButtonCustom
-            title="Contact"
-            variant="link"
-            size="sm"
-            path="/contact"
-            sx={"font-semibold"}
-          />
+    <footer className="w-full py-12 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Brand Section */}
+          <div className="space-y-4">
+            <Link href="/" className="inline-block">
+              <h3 className="text-2xl font-bold text-black">
+                Saer<span className="text-primary">.</span>
+              </h3>
+            </Link>
+            <p className="text-gray-600 dark:text-gray-400 max-w-xs">
+              Full stack developer crafting beautiful, functional websites and applications.
+            </p>
+            <div className="flex space-x-4">
+              <motion.a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -3 }}
+                className="text-gray-600 dark:text-gray-400 hover:text-[#6f4cff] dark:hover:text-[#6f4cff]"
+              >
+                <Github size={20} />
+              </motion.a>
+              <motion.a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -3 }}
+                className="text-gray-600 dark:text-gray-400 hover:text-[#6f4cff] dark:hover:text-[#6f4cff]"
+              >
+                <Linkedin size={20} />
+              </motion.a>
+              <motion.a
+                href="mailto:saer1890@gmail.com"
+                whileHover={{ y: -3 }}
+                className="text-gray-600 dark:text-gray-400 hover:text-[#6f4cff] dark:hover:text-[#6f4cff]"
+              >
+                <Mail size={20} />
+              </motion.a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <nav className="flex flex-col space-y-2">
+              <Link
+                href="/"
+                className="text-gray-600 dark:text-gray-400 hover:text-[#6f4cff] dark:hover:text-[#6f4cff] transition-colors"
+              >
+                Home
+              </Link>
+              <Link
+                href="/projects"
+                className="text-gray-600 dark:text-gray-400 hover:text-[#6f4cff] dark:hover:text-[#6f4cff] transition-colors"
+              >
+                Projects
+              </Link>
+              <Link
+                href="/contact"
+                className="text-gray-600 dark:text-gray-400 hover:text-[#6f4cff] dark:hover:text-[#6f4cff] transition-colors"
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <div className="space-y-2 text-gray-600 dark:text-gray-400">
+              <p>Beirut, Lebanon</p>
+              <p>saer1890@gmail.com</p>
+            </div>
+          </div>
         </div>
 
-        {/* Social Media Icons */}
-        <div className="flex space-x-4">
-          <a
-            href="https://www.linkedin.com/in/saer-el-masri/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn profile"
-          >
-            <FiLinkedin
-              size={30}
-              className="cursor-pointer hover:text-primary transition-transform transform hover:scale-110"
-            />
-          </a>
-          <a
-            href="https://github.com/saerelmasri"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub profile"
-          >
-            <FiGithub
-              size={30}
-              className="cursor-pointer hover:text-primary transition-transform transform hover:scale-110"
-            />
-          </a>
-        </div>
-      </div>
-
-      {/* Call-to-Action and Footer Details */}
-      <div className="mt-8 flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0 px-6 md:px-10">
-        {/* Call-to-Action Section */}
-        <div className="flex flex-col md:flex-row items-center md:items-center space-y-4 md:space-y-0 md:space-x-4">
-          <h4 className="text-base font-semibold text-gray-500 text-center md:text-left">
-            Interested in working together?
-          </h4>
-          <ButtonCustom
-            title="Get in Touch"
-            path="/contact"
-            variant={"default"}
-            size={"sm"}
-            sx={"text-white text-sm font-semibold"}
-          />
-        </div>
-
-        {/* Footer Bottom Section */}
-        <div className="flex flex-col items-center md:items-end space-y-2">
-          <h4 className="text-sm font-semibold text-gray-500">
-            ©{year} All Rights Reserved.
-          </h4>
-          <h4 className="text-sm font-semibold text-gray-500">
-            Made with 💜 by Saer El Masri
-          </h4>
+        <div className="border-t border-gray-200 dark:border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            © {currentYear} Saer El Masri. All rights reserved.
+          </p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 md:mt-0">Designed & Developed with ❤️</p>
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer
+

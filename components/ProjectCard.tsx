@@ -1,90 +1,55 @@
-import Link from "next/link";
-import React from "react";
-import { Badge } from "@/components/ui/badge";
+/* eslint-disable @next/next/no-img-element */
+import Link from "next/link"
+import type React from "react"
+import { motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 
-type ProjectCardProp = {
-  title: string;
-  description: string;
-  skills: string[];
-  backgroundProject: string;
-  sxCard?: string;
-  path?: string;
-  website?: string;
-};
-
-function ProjectCard({
-  title,
-  description,
-  skills,
-  backgroundProject,
-  sxCard,
-  path,
-  website
-}: ProjectCardProp) {
-  const isInternalLink = path && (path.startsWith("/") || path.startsWith("#"));
-
-  return (
-    <div className={`space-y-3 ${sxCard}`}>
-      <div
-        className={`w-full h-[300px] mb-10 rounded-3xl bg-cover bg-center bg-projects flex justify-center items-center`}
-      >
-        <div
-          className="w-[90%] h-[250px] rounded bg-cover bg-center"
-          style={{ backgroundImage: `url(${backgroundProject})` }}
-        />
-      </div>
-      {path ? (
-        isInternalLink ? (
-          <Link href={path} passHref>
-            <h4 className="text-lg font-bold hover:underline hover:cursor-pointer">
-              {title}
-            </h4>
-          </Link>
-        ) : (
-          <a
-            href={path}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lg font-bold hover:underline hover:cursor-pointer"
-          >
-            {title}
-          </a>
-        )
-      ) : (
-        <h4 className="text-lg font-bold">{title}</h4>
-      )}
-      <div className=" w-full">
-        <div className="flex flex-wrap gap-3">
-          {skills.map((skill, index) => (
-            <Badge
-              key={index}
-              className="p-1.5 flex justify-center items-center rounded-lg text-center text-xs hover:bg-primary"
-            >
-              {skill}
-            </Badge>
-          ))}
-        </div>
-      </div>
-      <h4 className="text-base font-semibold text-gray-500">{description}</h4>
-
-      {website && (
-        <Link href={website}>
-          <h4 className="text-base sm:text-lg font-medium text-primary hover:underline mt-2">
-            Link to the website
-          </h4>
-        </Link>
-      )}
-
-      {/* GitHub Repository Link */}
-      {path &&  (
-        <Link href={path}>
-          <h4 className="text-base sm:text-lg font-medium text-primary hover:underline mt-2">
-            Link to the Github repository
-          </h4>
-        </Link>
-      )}
-    </div>
-  );
+interface ProjectCardProps {
+  title: string
+  description: string
+  backgroundProject: string
+  path: string
+  skills: { name: string; logo: string }[]  // Updated skills type to include logo
+  sxCard?: string
 }
 
-export default ProjectCard;
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, backgroundProject, path, skills, sxCard }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -10 }}
+      className={`relative overflow-hidden rounded-xl shadow-lg ${sxCard}`}
+    >
+      <div className="h-48 w-full bg-cover bg-center" style={{ backgroundImage: `url(${backgroundProject})` }} />
+
+      <div className="p-6 bg-white dark:bg-gray-800 relative z-10">
+        <h4 className="text-xl font-bold mb-2">{title}</h4>
+        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{description}</p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {skills.map((skill, index) => (
+            <span key={index} className="flex items-center gap-1 px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
+              <img src={skill.logo} alt={skill.name} className="h-4 w-4" />
+              {skill.name}
+            </span>
+          ))}
+        </div>
+
+        <Link href={path} className="group inline-flex items-center text-primary font-medium">
+          View Project
+          <motion.span initial={{ x: 0 }} whileHover={{ x: 5 }} className="ml-1">
+            <ArrowRight size={16} />
+          </motion.span>
+        </Link>
+      </div>
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    </motion.div>
+  )
+}
+
+export default ProjectCard

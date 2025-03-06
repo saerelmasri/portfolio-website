@@ -1,34 +1,50 @@
-"use client";
+"use client"
 
-import React from "react";
-import { Button } from "./ui/button";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+import Link from "next/link"
+import type React from "react"
+import { motion } from "framer-motion"
 
-type ButtonProp = {
-  title: string;
-  path?: string;
-  variant: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined;
-  size?: "default" | "sm" | "lg" | "icon" | null | undefined;
-  sx?: string;
-};
-
-function ButtonCustom({ title, path, variant, size, sx }: ButtonProp) {
-  const pathname = usePathname();
-  const isActive = path === pathname;
-  const variantClasses = variant === "default" ? "hover:text-white" : "";
-  const activeClasses = isActive ? "text-primary" : "text-black";
-  const customClasses = sx ? sx : "";
-
-  return (
-    <Button
-      variant={variant}
-      size={size ? size : "default"}
-      className={`hover:text-primary ${variantClasses} ${activeClasses} ${customClasses}`}
-    >
-      <Link href={path ? path : ""}>{title}</Link>
-    </Button>
-  );
+interface ButtonProps {
+  title: string
+  path: string
+  variant: "default" | "outline" | "ghost"
+  sx?: string
+  icon?: React.ReactNode
 }
 
-export default ButtonCustom;
+const ButtonCustom: React.FC<ButtonProps> = ({ title, path, variant, sx, icon }) => {
+  const baseClasses =
+    "py-3 px-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2"
+
+  let variantClasses = ""
+
+  switch (variant) {
+    case "default":
+      variantClasses = "bg-gradient-primary text-white hover:shadow-lg hover:shadow-primary/20"
+      break
+    case "outline":
+      variantClasses = "border-2 border-primary text-primary hover:bg-primary/10"
+      break
+    case "ghost":
+      variantClasses = "text-primary hover:bg-primary/10"
+      break
+    default:
+      variantClasses = "bg-gradient-primary text-white hover:shadow-lg hover:shadow-primary/20"
+  }
+
+  return (
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+    >
+      <Link href={path} className={`${baseClasses} ${variantClasses} ${sx}`}>
+        {icon && <span>{icon}</span>}
+        {title}
+      </Link>
+    </motion.div>
+  )
+}
+
+export default ButtonCustom
+
