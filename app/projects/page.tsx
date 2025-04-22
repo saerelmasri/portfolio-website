@@ -51,6 +51,7 @@ export default function ProjectsPage() {
                   backgroundProject={project.backgroundProject}
                   path={project.path}
                   skills={project.skills}
+                  websiteURL={project.websiteURL}
                 />
               </RevealOnScroll>
             ))}

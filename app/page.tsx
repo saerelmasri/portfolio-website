@@ -239,6 +239,7 @@ export default function Home() {
                 backgroundProject={item.backgroundProject}
                 path={item.path}
                 skills={item.skills}
+                websiteURL={item.websiteURL}
               />
             </RevealOnScroll>
           ))}

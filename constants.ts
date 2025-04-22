@@ -17,17 +17,42 @@ export const mySkills = [
   },
   {
     title: "Backend",
-    skillsCollection: [
-      "NodeJs",
-      "ExpressJS",
-      "MySQL",
-      "Vercel",
-      "Firebase",
-    ],
+    skillsCollection: ["NodeJs", "ExpressJS", "MySQL", "Vercel", "Firebase"],
   },
 ];
 
 export const projects = [
+  {
+    title: "Casa Di Luna - Skincare store/blog",
+    description:
+      "I built a modern, luxury skincare website using Next.js, Tailwind CSS, Shadcn/UI, and the Notion API. The site provides an elegant and empowering experience for women, allowing them to explore key skincare categories, read the latest articles, and more. Notion is used as a CMS to manage and display blog content seamlessly.",
+    backgroundProject: "/images/casadiluna.png",
+    path: "https://github.com/saerelmasri/casadiluna",
+    websiteURL: "https://casadiluna.vercel.app/",
+    website: "",
+    skills: [
+      {
+        name: "TypeScript",
+        logo: "/images/logos/typescript.svg",
+      },
+      {
+        name: "NextJS",
+        logo: "/images/logos/nextjs.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        logo: "/images/logos/tailwindcss.svg",
+      },
+      {
+        name: "Shadcn-ui",
+        logo: "/images/logos/shadcn-ui.svg",
+      },
+      {
+        name: "Notion API",
+        logo: "/images/logos/notion.svg",
+      },
+    ],
+  },
   {
     title: "My Landing Page",
     description:
