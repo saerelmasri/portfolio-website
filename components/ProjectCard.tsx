@@ -37,9 +37,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         style={{ backgroundImage: `url(${backgroundProject})` }}
       />
 
-      <div className="p-6 bg-white dark:bg-gray-800 relative z-10 flex flex-col justify-between flex-grow">
+      <div className="p-6 bg-white relative z-10 flex flex-col justify-between flex-grow">
         <h4 className="text-xl font-bold mb-2 text-black">{title}</h4>
-        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+        <p className="text-gray-600 text-sm mb-4">
           {description}
         </p>
 

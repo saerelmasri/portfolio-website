@@ -76,7 +76,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white"
+              className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-black dark:text-white"
             >
               <span className="text-primary">Full Stack</span> Developer
             </motion.h2>
@@ -163,7 +163,7 @@ export default function Home() {
           <RevealOnScroll delay={100} className="reveal-delay-1">
             <motion.div
               whileHover={{ y: -10 }}
-              className="bg-white dark:bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-lg text-center"
+              className="bg-white backdrop-blur-sm p-8 rounded-xl shadow-lg text-center"
             >
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Globe size={28} className="text-primary" />
@@ -171,7 +171,7 @@ export default function Home() {
               <h4 className="text-xl font-bold mb-4 text-primary">
                 Web Development
               </h4>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600">
                 Creating responsive, modern websites that provide exceptional
                 user experiences across all devices.
               </p>
@@ -181,7 +181,7 @@ export default function Home() {
           <RevealOnScroll delay={200} className="reveal-delay-2">
             <motion.div
               whileHover={{ y: -10 }}
-              className="bg-white dark:bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-lg text-center"
+              className="bg-white backdrop-blur-sm p-8 rounded-xl shadow-lg text-center"
             >
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Code size={28} className="text-primary" />
@@ -189,7 +189,7 @@ export default function Home() {
               <h4 className="text-xl font-bold mb-4 text-primary">
                 Full Stack Development
               </h4>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600">
                 Building complete web applications with robust backends,
                 efficient APIs, and dynamic frontends.
               </p>
@@ -199,7 +199,7 @@ export default function Home() {
           <RevealOnScroll delay={300} className="reveal-delay-3">
             <motion.div
               whileHover={{ y: -10 }}
-              className="bg-white dark:bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-lg text-center"
+              className="bg-white backdrop-blur-sm p-8 rounded-xl shadow-lg text-center"
             >
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Cpu size={28} className="text-primary" />
@@ -207,7 +207,7 @@ export default function Home() {
               <h4 className="text-xl font-bold mb-4 text-primary">
                 Technical Consulting
               </h4>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600">
                 Providing expert advice on technology choices, architecture, and
                 implementation strategies.
               </p>
@@ -217,13 +217,13 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <div className="w-full px-6 sm:px-12 lg:px-20 py-20 bg-gray-50 dark:bg-gray-900/30">
+      <div className="w-full px-6 sm:px-12 lg:px-20 py-20 bg-gray-50">
         <RevealOnScroll>
           <div className="w-full mb-12 text-center">
             <h3 className="text-3xl sm:text-4xl font-bold text-black">
               Projects<span className="text-primary">.</span>
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
               A selection of my recent work. Each project represents a unique
               challenge and solution.
             </p>
@@ -280,13 +280,13 @@ export default function Home() {
       </div>
 
       {/* Skills Section */}
-      <div className="w-full px-6 sm:px-12 lg:px-20 py-20 bg-gray-50 dark:bg-gray-900/30">
+      <div className="w-full px-6 sm:px-12 lg:px-20 py-20 bg-gray-50">
         <RevealOnScroll>
           <div className="w-full mb-12">
             <h3 className="text-3xl sm:text-4xl font-bold text-center text-black">
               Skills<span className="text-primary">.</span>
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto text-center">
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-center">
               The technologies and tools I work with to bring ideas to life.
             </p>
           </div>
@@ -305,7 +305,7 @@ export default function Home() {
       </div>
 
       {/* My Story Section - Redesigned */}
-      <div className="w-full px-6 sm:px-12 lg:px-20 py-20 bg-white dark:bg-gray-900/30">
+      <div className="w-full px-6 sm:px-12 lg:px-20 py-20 bg-white">
         <RevealOnScroll>
           <div className="w-full mb-12">
             <h3 className="text-3xl sm:text-4xl font-bold text-center text-black">
@@ -331,14 +331,14 @@ export default function Home() {
                 <h4 className="text-2xl font-bold text-primary">
                   From Computer Science to Full Stack Development
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600">
                   My journey began with a Computer Science degree in 2022, but I
                   quickly realized that theoretical knowledge wasn't enough. I
                   joined SE Factory, Lebanon's premier coding bootcamp, where I
                   transformed into a full-stack developer through intensive,
                   hands-on training.
                 </p>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600">
                   Today, I blend technical expertise with creative
                   problem-solving to build beautiful, functional websites. My
                   passion for coding drives me to continuously learn and
@@ -362,11 +362,11 @@ export default function Home() {
               </div>
 
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                <div className="text-white space-y-4 text-center md:text-left">
+                <div className="dark:text-white text-black space-y-4 text-center md:text-left">
                   <h3 className="text-3xl md:text-4xl font-bold">
                     Let's Create Something Amazing
                   </h3>
-                  <p className="text-white/80 max-w-md">
+                  <p className="text-black dark:text-white/80 max-w-md">
                     Have a project in mind? I'd love to hear about it. Let's
                     discuss how we can work together to bring your vision to
                     life.

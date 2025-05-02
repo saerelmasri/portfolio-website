@@ -15,7 +15,7 @@ const Skills: React.FC<SkillsProps> = ({ title, skillsCollection }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="w-full p-6 rounded-xl bg-white dark:bg-gray-800/50 shadow-md backdrop-blur-sm"
+      className="w-full p-6 rounded-xl bg-white shadow-md backdrop-blur-sm"
     >
       <h4 className="text-xl font-bold mb-6 text-primary">{title}</h4>
       <div className="flex flex-wrap gap-3">

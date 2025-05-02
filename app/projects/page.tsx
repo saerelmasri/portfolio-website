@@ -63,11 +63,11 @@ export default function ProjectsPage() {
       <div className="w-full px-6 sm:px-12 lg:px-20 mt-20">
         <div className="max-w-5xl mx-auto">
           <RevealOnScroll>
-            <div className="bg-white dark:bg-gray-800/50 rounded-xl p-8 text-center shadow-lg backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-4">
+            <div className="bg-white rounded-xl p-8 text-center shadow-lg backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-4 text-black">
                 Interested in working together?
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
                 I'm always open to discussing new projects and opportunities.
                 Let's create something amazing together.
               </p>

@@ -30,7 +30,7 @@ const NavBar: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md" : "bg-transparent"
+        scrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,7 +61,7 @@ const NavBar: React.FC = () => {
                   className={`relative text-sm font-medium transition-colors duration-300 ${
                     pathname === link.path
                       ? "text-[#6f4cff]"
-                      : `text-gray-700 dark:text-gray-300 hover:text-[#6f4cff] dark:hover:text-[#6f4cff]`
+                      : `text-gray-700  hover:text-[#6f4cff] dark:hover:text-[#6f4cff]`
                   }`}
                 >
                   {link.name}
